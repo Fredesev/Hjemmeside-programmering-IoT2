@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block styles %}
+<style>
+    /* CSS for at gøre billedet til baggrunden */
+    body {
+        background-image: url("{{ url_for('static', filename='splash_background.jpg') }}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    /* Tilføj andre CSS-stilarter her, hvis nødvendigt */
+</style>
+{% endblock %}
+
+{% block content %}
+<h1>Velkommen til projekt CleanFlow</h1>
+<div style="background-color: rgba(255, 255, 255, 0.5); height: 400px;">
+    <!-- Placer indhold her -->
+</div>
+{% endblock %}
+
+
+

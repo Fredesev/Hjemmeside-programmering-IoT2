@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}GPS Data Dashboard{% endblock %}
+
+{% block gpscontent %}
+<h1>GPS Data Dashboard</h1>
+<div id="map" style="height: 400px;"></div>
+
+<script>
+    // Initialisér Leaflet map
+    var map = L.map('map').setView([51.505, -0.09], 13);
+
+    // Tilføj en flise-lag til kortet (du kan bruge enhver fliseudbyder)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Generer tilfældige koordinater
+    var lat = Math.random() * 180 - 90;
+    var lng = Math.random() * 360 - 180;
+
+    // Tilføj en markør til kortet med de tilfældige koordinater
+    L.marker([lat, lng]).addTo(map)
+        .bindPopup('A random GPS location.');
+
+    // Du kan tilføje flere markører eller bruge data til at befolke dem dynamisk
+</script>
+{% endblock %}
+
+

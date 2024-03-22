@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Battery Status{% endblock %}
+
+{% block content %}
+<h1>Battery Status</h1>
+<canvas id="batteryChart" width="800" height="400"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Dummy data for battery level
+    const batteryLevel = 80;  // Battery level in percentage
+
+    // Create battery level chart
+    const ctx = document.getElementById('batteryChart').getContext('2d');
+    const batteryChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Battery Level'],
+            datasets: [{
+                label: 'Battery Level',
+                data: [batteryLevel],
+                backgroundColor: 'rgba(54, 162, 235, 0.5)', // Blue color for battery level
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            legend: {
+                display: false
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }]
+            },
+            title: {
+                display: true,
+                text: 'Battery Level (%)'
+            }
+        }
+    });
+</script>
+{% endblock %}
+
+
+
